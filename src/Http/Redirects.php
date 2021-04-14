@@ -34,6 +34,22 @@ abstract class Redirects
         return $url;
     }
 
+     /**
+     * Resolve a facebook redirection url.
+     *
+     * @param Url $url
+     *
+     * @return Url
+     */
+    public static function facebook(Url $url)
+    {
+        if (($value = $url->getQueryParameter('next'))) {
+            return Url::create($value);
+        }
+
+        return $url;
+    }
+    
     /**
      * Resolve a facebook redirection url.
      *
